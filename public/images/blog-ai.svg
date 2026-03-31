@@ -1,0 +1,12 @@
+<svg width="640" height="360" viewBox="0 0 640 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="360" rx="32" fill="url(#g)"/>
+  <circle cx="140" cy="120" r="70" fill="rgba(255,255,255,0.2)"/>
+  <circle cx="520" cy="240" r="90" fill="rgba(255,255,255,0.16)"/>
+  <text x="50" y="210" font-family="Arial, sans-serif" font-size="44" font-weight="700" fill="#ffffff">AI in Education</text>
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="640" y2="360" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0b5e4b"/>
+      <stop offset="1" stop-color="#2d9cdb"/>
+    </linearGradient>
+  </defs>
+</svg>

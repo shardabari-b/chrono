@@ -1,0 +1,13 @@
+<svg width="640" height="360" viewBox="0 0 640 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="360" rx="32" fill="url(#g)"/>
+  <rect x="120" y="140" width="180" height="70" rx="30" fill="rgba(255,255,255,0.22)"/>
+  <circle cx="170" cy="175" r="10" fill="rgba(255,255,255,0.55)"/>
+  <circle cx="210" cy="175" r="10" fill="rgba(255,255,255,0.55)"/>
+  <text x="50" y="260" font-family="Arial, sans-serif" font-size="40" font-weight="700" fill="#ffffff">Games & Animation</text>
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="640" y2="360" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4b2c82"/>
+      <stop offset="1" stop-color="#f15bb5"/>
+    </linearGradient>
+  </defs>
+</svg>

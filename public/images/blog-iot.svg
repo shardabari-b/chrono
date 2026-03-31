@@ -1,0 +1,12 @@
+<svg width="640" height="360" viewBox="0 0 640 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="360" rx="32" fill="url(#g)"/>
+  <rect x="70" y="90" width="160" height="120" rx="26" fill="rgba(255,255,255,0.22)"/>
+  <rect x="260" y="120" width="120" height="14" rx="7" fill="rgba(255,255,255,0.35)"/>
+  <text x="50" y="260" font-family="Arial, sans-serif" font-size="40" font-weight="700" fill="#ffffff">IoT Classrooms</text>
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="640" y2="360" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0f4c81"/>
+      <stop offset="1" stop-color="#5ad7b7"/>
+    </linearGradient>
+  </defs>
+</svg>

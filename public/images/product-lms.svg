@@ -1,0 +1,14 @@
+<svg width="320" height="200" viewBox="0 0 320 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="320" height="200" rx="24" fill="url(#g)"/>
+  <circle cx="70" cy="60" r="28" fill="rgba(255,255,255,0.25)"/>
+  <circle cx="250" cy="140" r="40" fill="rgba(255,255,255,0.18)"/>
+  <rect x="34" y="120" width="120" height="14" rx="7" fill="rgba(255,255,255,0.45)"/>
+  <rect x="34" y="142" width="170" height="12" rx="6" fill="rgba(255,255,255,0.35)"/>
+  <text x="34" y="88" font-family="Arial, sans-serif" font-size="26" font-weight="700" fill="#ffffff">LMS</text>
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="320" y2="200" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1b6b5d"/>
+      <stop offset="1" stop-color="#2d9cdb"/>
+    </linearGradient>
+  </defs>
+</svg>

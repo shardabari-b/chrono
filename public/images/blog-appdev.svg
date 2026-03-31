@@ -1,0 +1,12 @@
+<svg width="640" height="360" viewBox="0 0 640 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="360" rx="32" fill="url(#g)"/>
+  <rect x="90" y="70" width="170" height="200" rx="30" fill="rgba(255,255,255,0.22)"/>
+  <circle cx="175" cy="230" r="14" fill="rgba(255,255,255,0.55)"/>
+  <text x="50" y="260" font-family="Arial, sans-serif" font-size="40" font-weight="700" fill="#ffffff">App Development</text>
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="640" y2="360" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1d2b64"/>
+      <stop offset="1" stop-color="#f8cdda"/>
+    </linearGradient>
+  </defs>
+</svg>

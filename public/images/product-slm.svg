@@ -1,0 +1,13 @@
+<svg width="320" height="200" viewBox="0 0 320 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="320" height="200" rx="24" fill="url(#g)"/>
+  <circle cx="80" cy="70" r="30" fill="rgba(255,255,255,0.25)"/>
+  <circle cx="200" cy="120" r="48" fill="rgba(255,255,255,0.18)"/>
+  <rect x="36" y="120" width="150" height="12" rx="6" fill="rgba(255,255,255,0.4)"/>
+  <text x="34" y="88" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#ffffff">SLM</text>
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="320" y2="200" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0f766e"/>
+      <stop offset="1" stop-color="#7c3aed"/>
+    </linearGradient>
+  </defs>
+</svg>

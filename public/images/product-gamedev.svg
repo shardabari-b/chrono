@@ -1,0 +1,15 @@
+<svg width="320" height="200" viewBox="0 0 320 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="320" height="200" rx="24" fill="url(#g)"/>
+  <rect x="56" y="80" width="140" height="50" rx="20" fill="rgba(255,255,255,0.22)"/>
+  <circle cx="90" cy="105" r="8" fill="rgba(255,255,255,0.55)"/>
+  <circle cx="120" cy="105" r="8" fill="rgba(255,255,255,0.55)"/>
+  <rect x="170" y="92" width="26" height="6" rx="3" fill="rgba(255,255,255,0.5)"/>
+  <rect x="170" y="104" width="26" height="6" rx="3" fill="rgba(255,255,255,0.5)"/>
+  <text x="210" y="150" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#ffffff">GAME</text>
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="320" y2="200" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4b2c82"/>
+      <stop offset="1" stop-color="#f15bb5"/>
+    </linearGradient>
+  </defs>
+</svg>

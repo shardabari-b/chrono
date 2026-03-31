@@ -1,0 +1,13 @@
+<svg width="320" height="200" viewBox="0 0 320 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="320" height="200" rx="24" fill="url(#g)"/>
+  <polygon points="60,140 100,60 140,140" fill="rgba(255,255,255,0.28)"/>
+  <circle cx="230" cy="80" r="34" fill="rgba(255,255,255,0.22)"/>
+  <rect x="170" y="120" width="110" height="12" rx="6" fill="rgba(255,255,255,0.35)"/>
+  <text x="34" y="88" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#ffffff">HACK</text>
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="320" y2="200" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ff8a00"/>
+      <stop offset="1" stop-color="#ff3d77"/>
+    </linearGradient>
+  </defs>
+</svg>

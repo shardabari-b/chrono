@@ -1,0 +1,14 @@
+<svg width="320" height="200" viewBox="0 0 320 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="320" height="200" rx="24" fill="url(#g)"/>
+  <rect x="70" y="60" width="110" height="80" rx="16" fill="rgba(255,255,255,0.22)"/>
+  <circle cx="100" cy="90" r="10" fill="rgba(255,255,255,0.55)"/>
+  <circle cx="140" cy="90" r="10" fill="rgba(255,255,255,0.55)"/>
+  <rect x="190" y="120" width="90" height="12" rx="6" fill="rgba(255,255,255,0.35)"/>
+  <text x="34" y="150" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#ffffff">ROBO</text>
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="320" y2="200" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0b8793"/>
+      <stop offset="1" stop-color="#36096d"/>
+    </linearGradient>
+  </defs>
+</svg>
