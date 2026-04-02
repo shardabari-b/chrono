@@ -66,7 +66,7 @@ function Header() {
   const handleServiceClick = (serviceId) => {
     setMenuOpen(false);
     setOpenDropdown(null);
-    navigate(`/services/${serviceId}`);
+    navigate("/services", { state: { activeId: serviceId } });
   };
 
   const handleProductClick = (productId) => {
@@ -87,6 +87,10 @@ function Header() {
     if (!isMobile) {
       // Only close if not moving to the dropdown panel itself
       const related = e.relatedTarget;
+      if (!related || !(related instanceof Node)) {
+        setOpenDropdown(null);
+        return;
+      }
       if (!e.currentTarget.contains(related)) {
         setOpenDropdown(null);
       }

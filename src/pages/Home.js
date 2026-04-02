@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import About from "./About";
 import OurTeam from "./OurTeam";
 import Products from "./Products";
-import Services from "./Services";
+import ServicesPage from "./ServicesPage";
 import Industries from "./Industries";
 import WhyChooseUs from "./WhyChooseUs";
 import EduTech from "./EduTech";
@@ -143,7 +143,7 @@ const Home = () => {
       </section>
 
       <section className="page-anchor" id="services">
-        <Services />
+        <ServicesPage />
       </section>
 
       <section className="page-anchor" id="products">

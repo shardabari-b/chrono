@@ -6,7 +6,7 @@ function Footer() {
       <div className="footer-grid" style={styles.container}>
 
         <div style={styles.column}>
-          <Link to="/home" style={styles.logoLink}>
+          <Link to="/" style={styles.logoLink}>
             <img src="/images/chronosphere-logo.png" alt="Chronosphere" style={styles.footerLogo} />
           </Link>
           <p style={styles.text}>
@@ -17,13 +17,13 @@ function Footer() {
 
         <div style={styles.column}>
           <h3 style={styles.heading}>Navigate</h3>
-          <Link style={styles.link} to="/home">Home</Link>
-          <Link style={styles.link} to="/about">About</Link>
-          <Link style={styles.link} to="/products">Products</Link>
-          <Link style={styles.link} to="/services">Services</Link>
-          <Link style={styles.link} to="/blogs">Blogs</Link>
-          <Link style={styles.link} to="/rd">R&D</Link>
-          <Link style={styles.link} to="/contact">Contact</Link>
+          <Link className="ft-link" style={styles.link} to="/">Home</Link>
+          <Link className="ft-link" style={styles.link} to="/about">About</Link>
+          <Link className="ft-link" style={styles.link} to="/products">Products</Link>
+          <Link className="ft-link" style={styles.link} to="/services">Services</Link>
+          <Link className="ft-link" style={styles.link} to="/blogs">Blogs</Link>
+          <Link className="ft-link" style={styles.link} to="/rd">R&D</Link>
+          <Link className="ft-link" style={styles.link} to="/contact">Contact</Link>
         </div>
 
         <div style={styles.column}>
@@ -38,10 +38,10 @@ function Footer() {
 
         <div style={styles.column}>
           <h3 style={styles.heading}>Blogs</h3>
-          <Link style={styles.link} to="/blogs">Top 10 Web Design Companies in Canada</Link>
-          <Link style={styles.link} to="/blogs">How Website Design Impacts Online Sales</Link>
-          <Link style={styles.link} to="/blogs">Website Design Cost in Canada</Link>
-          <Link style={styles.link} to="/blogs">AI in Education: Future Classrooms</Link>
+          <Link className="ft-link" style={styles.link} to="/blogs">Top 10 Web Design Companies in Canada</Link>
+          <Link className="ft-link" style={styles.link} to="/blogs">How Website Design Impacts Online Sales</Link>
+          <Link className="ft-link" style={styles.link} to="/blogs">Website Design Cost in Canada</Link>
+          <Link className="ft-link" style={styles.link} to="/blogs">AI in Education: Future Classrooms</Link>
         </div>
 
         <div style={styles.column}>
@@ -63,48 +63,47 @@ Burhanpur(M.P.) Pin-450331</p>
     </svg>Digitalmarketing@mvaburhanpur.com</p>
           <h3 style={{ ...styles.heading, marginTop: "20px" }}>Follow Us</h3>
           <div style={styles.socialRow}>
-            <button type="button" aria-label="Facebook" style={styles.socialBtn}>
+            <button type="button" aria-label="Facebook (link coming soon)" style={styles.socialBtnDisabled} disabled>
               <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
                 <path fill="currentColor" d="M13.5 8.5V6.8c0-.6.4-1 1-1h1.7V3h-2.4C11.7 3 10.5 4.3 10.5 6.2v2.3H9v2.7h1.5V21h3v-9.8h2.2l.4-2.7h-2.6z" />
               </svg>
             </button>
-            <button type="button" aria-label="YouTube" style={styles.socialBtn}>
-              <a
-    href="https://www.youtube.com/shorts/IPEYN14fWHg"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="YouTube"
-   >
-    <svg viewBox="0 0 24 24" width="18" height="18">
-      <path fill="#fff" d="M22.5 7.6a2.9 2.9 0 0 0-2-2C18.9 5 12 5 12 5s-6.9 0-8.5.6a2.9 2.9 0 0 0-2 2A30 30 0 0 0 1 12a30 30 0 0 0 .5 4.4 2.9 2.9 0 0 0 2 2C5.1 19 12 19 12 19s6.9 0 8.5-.6a2.9 2.9 0 0 0 2-2A30 30 0 0 0 23 12a30 30 0 0 0-.5-4.4zM10 15.5V8.5l6 3.5-6 3.5z"/>
-    </svg>
-  </a>
-            </button>
-            <button type="button" aria-label="Instagram" style={styles.socialBtn}>
-                <a
-    href="https://instagram.com/chronosphere"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Instagram"
-   >
-    <svg viewBox="0 0 24 24" width="18" height="18">
-      <path fill="#fff" d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4zm10 2H7a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm-5 3.2A4.8 4.8 0 1 1 7.2 13 4.8 4.8 0 0 1 12 8.2zm0 2A2.8 2.8 0 1 0 14.8 13 2.8 2.8 0 0 0 12 10.2zm5-2.4a1 1 0 1 1-1 1 1 1 0 0 1 1-1z"/>
-    </svg>
-  </a>
-            </button>
-            <button type="button" aria-label="LinkedIn" style={styles.socialBtn}>
-              <a
-    href="https://www.linkedin.com/"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="LinkedIn"
-    
-  >
-    <svg viewBox="0 0 24 24" width="18" height="18">
-      <path fill="#ffff" d="M6.5 9.5H3.7V21h2.8zM5.1 3.5a1.6 1.6 0 1 0 0 3.2 1.6 1.6 0 0 0 0-3.2zM21 13.2c0-2.3-1.2-3.7-3.2-3.7a2.8 2.8 0 0 0-2.5 1.4h0V9.5h-2.7V21h2.7v-6.1c0-1.6.3-3.2 2.2-3.2 1.9 0 2 1.8 2 3.3V21H21z"/>
-    </svg>
-  </a>
-            </button>
+            <a
+              className="ft-social"
+              href="https://www.youtube.com/shorts/IPEYN14fWHg"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="YouTube"
+              style={styles.socialBtn}
+            >
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                <path fill="currentColor" d="M22.5 7.6a2.9 2.9 0 0 0-2-2C18.9 5 12 5 12 5s-6.9 0-8.5.6a2.9 2.9 0 0 0-2 2A30 30 0 0 0 1 12a30 30 0 0 0 .5 4.4 2.9 2.9 0 0 0 2 2C5.1 19 12 19 12 19s6.9 0 8.5-.6a2.9 2.9 0 0 0 2-2A30 30 0 0 0 23 12a30 30 0 0 0-.5-4.4zM10 15.5V8.5l6 3.5-6 3.5z"/>
+              </svg>
+            </a>
+            <a
+              className="ft-social"
+              href="https://instagram.com/chronosphere"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              style={styles.socialBtn}
+            >
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                <path fill="currentColor" d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4zm10 2H7a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm-5 3.2A4.8 4.8 0 1 1 7.2 13 4.8 4.8 0 0 1 12 8.2zm0 2A2.8 2.8 0 1 0 14.8 13 2.8 2.8 0 0 0 12 10.2zm5-2.4a1 1 0 1 1-1 1 1 1 0 0 1 1-1z"/>
+              </svg>
+            </a>
+            <a
+              className="ft-social"
+              href="https://www.linkedin.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              style={styles.socialBtn}
+            >
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                <path fill="currentColor" d="M6.5 9.5H3.7V21h2.8zM5.1 3.5a1.6 1.6 0 1 0 0 3.2 1.6 1.6 0 0 0 0-3.2zM21 13.2c0-2.3-1.2-3.7-3.2-3.7a2.8 2.8 0 0 0-2.5 1.4h0V9.5h-2.7V21h2.7v-6.1c0-1.6.3-3.2 2.2-3.2 1.9 0 2 1.8 2 3.3V21H21z"/>
+              </svg>
+            </a>
           </div>
         </div>
 
@@ -120,6 +119,13 @@ Burhanpur(M.P.) Pin-450331</p>
         }
         @media (max-width: 540px) {
           .footer-grid { grid-template-columns: 1fr !important; gap: 28px !important; }
+        }
+        .ft-link:hover {
+          color: #ffffff !important;
+        }
+        .ft-social:hover {
+          transform: translateY(-2px);
+          background: rgba(255, 255, 255, 0.14) !important;
         }
       `}</style>
     </footer>
@@ -202,19 +208,32 @@ const styles = {
     border: "1px solid rgba(255, 255, 255, 0.12)",
     background: "rgba(255, 255, 255, 0.08)",
     color: "#f8fbff",
+    textDecoration: "none",
     display: "inline-flex",
     alignItems: "center",
     justifyContent: "center",
     cursor: "pointer",
     transition: "transform 0.2s ease, background 0.2s ease"
   },
+  socialBtnDisabled: {
+    width: "40px",
+    height: "40px",
+    borderRadius: "10px",
+    border: "1px solid rgba(255, 255, 255, 0.12)",
+    background: "rgba(255, 255, 255, 0.06)",
+    color: "#f8fbff",
+    display: "inline-flex",
+    alignItems: "center",
+    justifyContent: "center",
+    cursor: "not-allowed",
+    opacity: 0.7,
+  },
   icon: {
   width: "22px",
   height: "22px",
   minWidth: "22px",
   color: "#cbd5e1", // light gray like your screenshot
-  verticalAlign: "middle",
-  marginRight: "8px"
+  marginTop: "4px"
 },
 
   bottom: {

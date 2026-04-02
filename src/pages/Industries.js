@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 
 const industries = [
   {
@@ -102,18 +103,18 @@ function Industries() {
       {/* ── Cards row ── */}
       <div className="in-row">
         {industries.map((ind, i) => (
-          <div
-            key={ind.id}
-            className="in-card"
-            data-idx={i}
-            style={{
-              opacity: cardVis[i] ? 1 : 0,
-              transform: cardVis[i] ? "translateY(0)" : "translateY(48px)",
-              transition: `opacity .7s cubic-bezier(0.22,1,0.36,1) ${i * 0.1}s, transform .7s cubic-bezier(0.22,1,0.36,1) ${i * 0.1}s`
-            }}
-            onMouseEnter={() => setHovered(ind.id)}
-            onMouseLeave={() => setHovered(null)}
-          >
+          <Link key={ind.id} to={`/industries/${ind.id}`} className="in-card-link">
+            <div
+              className="in-card"
+              data-idx={i}
+              style={{
+                opacity: cardVis[i] ? 1 : 0,
+                transform: cardVis[i] ? "translateY(0)" : "translateY(48px)",
+                transition: `opacity .7s cubic-bezier(0.22,1,0.36,1) ${i * 0.1}s, transform .7s cubic-bezier(0.22,1,0.36,1) ${i * 0.1}s`
+              }}
+              onMouseEnter={() => setHovered(ind.id)}
+              onMouseLeave={() => setHovered(null)}
+            >
             {/* background image with Ken Burns */}
             <div
               className={`in-card-img ${hovered === ind.id ? "in-card-img--zoom" : ""}`}
@@ -155,6 +156,7 @@ function Industries() {
             {/* bottom accent line */}
             <div className="in-card-line" />
           </div>
+          </Link>
         ))}
       </div>
 
@@ -202,6 +204,13 @@ function Industries() {
           border: 1px solid #e2e8f0;
           border-radius: 6px;
           overflow: hidden;
+        }
+
+        /* ── Card link ── */
+        .in-card-link {
+          text-decoration: none;
+          color: inherit;
+          display: block;
         }
 
         /* ── Card ── */

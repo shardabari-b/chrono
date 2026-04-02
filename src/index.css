@@ -7,6 +7,7 @@
   --blue-400: #60a5fa;
   --blue-100: #e8efff;
   --ink-900: #0b1220;
+  --ink-700: #334155;
   --ink-600: #475569;
   --bg-50: #f7f8fb;
   --bg-100: #f1f5f9;
@@ -56,6 +57,12 @@ a {
 
 button {
   color: inherit;
+}
+
+/* Accessible focus ring */
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: 3px solid rgba(37, 99, 235, 0.45);
+  outline-offset: 3px;
 }
 
 ::selection {

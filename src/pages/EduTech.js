@@ -140,112 +140,33 @@ function EduTech() {
           width: 100%;
           overflow: hidden;
         }
-        .et-inner {
-          display: grid;
-          
-          gap: clamp(118px,6vw,96px);
-          align-items: start;
-        }
+	        .et-inner {
+	         
+	          grid-template-columns: 1fr 1.5fr;
+	          gap: clamp(48px,6vw,96px);
+	          align-items: start;
+	        }
 
         /* Left */
         .et-left {
           position: sticky;
-          top: 100px;
+        
           align-self: start;
         }
-        .et-eyebrow {
-          display: inline-block;
-          font-family: "DM Sans", sans-serif;
-          font-size: 11px; font-weight: 700; letter-spacing: 3.5px;
-          text-transform: uppercase; color: #2563eb;
-          margin: 0 0 16px;
-        }
-        .et-heading {{
-    display: grid;
-    /* grid-template-columns: 1fr 1.5fr; */
-    gap: clamp(48px, 6vw, 96px);
-    align-items: start;
-}
-* {
-    box-sizing: border-box;
-}
-user agent stylesheet
-div {
-    display: block;
-    unicode-bidi: isolate;
-}
-<style>
-.et-section {
-    background: #ffffff;
-    padding: clamp(24px, 3vw, 40px) clamp(20px, 4vw, 72px) clamp(24px, 3vw, 40px);
-    font-family: "DM Sans", "Space Grotesk", sans-serif;
-    width: 100%;
-    overflow: hidden;
-}
-<style>
-.page-home-v2 {
-    font-family: "DM Sans", "Space Grotesk", sans-serif;
-    background: #ffffff;
-    color: #0b1220;
-}
-body {
-    margin: 0;
-    overflow-x: hidden;
-    color: var(--ink-900);
-    background: var(--bg-50);
-    font-family: 'Inter', 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-:root {
-    --blue-900: #0b1220;
-    --blue-700: #1d4ed8;
-    --blue-600: #2563eb;
-    --blue-400: #60a5fa;
-    --blue-100: #e8efff;
-    --ink-900: #0b1220;
-    --ink-600: #475569;
-    --bg-50: #f7f8fb;
-    --bg-100: #f1f5f9;
-}
-::selection {
-    background: rgba(37, 99, 235, 0.25);
-}
-::selection {
-    background: rgba(37, 99, 235, 0.25);
-}
-::selection {
-    background: rgba(37, 99, 235, 0.25);
-}
-::selection {
-    background: rgba(37, 99, 235, 0.25);
-}
-::selection {
-    background: rgba(37, 99, 235, 0.25);
-}
-::selection {
-    background: rgba(37, 99, 235, 0.25);
-}
-::selection {
-    background: rgba(37, 99, 235, 0.25);
-}
-::selection {
-    background: rgba(37, 99, 235, 0.25);
-}
-@font-face {
-    font-family: 'DM Sans';
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: url(https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu6-K6z9mXgjU0.woff2) format('woff2');
-    unicode-range: U +0100 -02BA, U +02BD -02C5, U +02C7 -02CC, U +02CE -02D7, U +02DD -02FF, U +0304, U +0308, U +0329, U +1D00 -1DBF, U +1E00 -1E9F, U +1EF2 -1EFF, U +2020, U +20A0 -20AB, U +20AD -20C0, U +2113, U +2C60 -2C7F, U + A720-A7FF;
-}
-          font-family: "Space Grotesk",sans-serif;
-          font-size: clamp(32px, 5vw, 54px);
-          font-weight: 800; color: #0f172a;
-          line-height: 1.1; letter-spacing: -0.03em;
-          margin: 0 0 20px;
-        }
+	        .et-eyebrow {
+	          display: inline-block;
+	          font-family: "DM Sans", sans-serif;
+	          font-size: 11px; font-weight: 700; letter-spacing: 3.5px;
+	          text-transform: uppercase; color: #2563eb;
+	          margin: 0 0 16px;
+	        }
+	        .et-heading {
+	          font-family: "Space Grotesk",sans-serif;
+	          font-size: clamp(32px, 5vw, 54px);
+	          font-weight: 800; color: #0f172a;
+	          line-height: 1.1; letter-spacing: -0.03em;
+	          margin: 0 0 20px;
+	        }
         .et-cyan { color: #2563eb; }
         .et-subtext {
           font-size: 15px; color: #475569;
@@ -273,15 +194,15 @@ body {
         }
 
         /* Progress */
-        .et-progress-track {
-          position: relative;
-          display: flex;
-          flex-direction: column;
-          gap: 20px;
-          padding-left: 8px;
-          width: fit-content;
-          display:none;
-        }
+	        .et-progress-track {
+	          position: relative;
+	          display: flex;
+	          flex-direction: column;
+	          gap: 20px;
+	          padding-left: 8px;
+	          width: fit-content;
+            display:none;
+	        }
         .et-progress-line {
           position: absolute;
           left: 15px; top: 8px; bottom: 8px;
