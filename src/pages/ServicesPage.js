@@ -268,7 +268,7 @@ function ServicesPage() {
         }
         .svp-hl-bar {
           width: 24px; height: 3px;
-          background: #2563eb; border-radius: 999px;
+          background: #2563eb; border-radius: 999px;x
           margin-bottom: 12px;
         }
         .svp-hl-name {

@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import About from "./About";
 import OurTeam from "./OurTeam";
 import Products from "./Products";
-import ServicesPage from "./ServicesPage";
+import ServicesPage from "./Services";
 import Industries from "./Industries";
 import WhyChooseUs from "./WhyChooseUs";
 import EduTech from "./EduTech";
