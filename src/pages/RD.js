@@ -2,613 +2,336 @@ import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const researchAreas = [
-  {
-    num: "01",
-    title: "Artificial Intelligence in Education",
-    desc: "Developing adaptive learning algorithms, emotion-sensing models, and AI-driven personalization engines that respond to each student's unique learning pattern.",
-    tags: ["Machine Learning", "NLP", "Adaptive Systems"],
-  },
-  {
-    num: "02",
-    title: "Robotics & Embedded Systems",
-    desc: "Building intelligent robotic platforms and IoT-integrated classroom tools that give students hands-on exposure to hardware, automation, and real-time control systems.",
-    tags: ["IoT", "Embedded C", "Automation"],
-  },
-  {
-    num: "03",
-    title: "EdTech Product Research",
-    desc: "Researching next-generation LMS architectures, student lifecycle analytics, and gamified learning frameworks that improve engagement and measurable outcomes.",
-    tags: ["LMS", "Analytics", "UX Research"],
-  },
-  {
-    num: "04",
-    title: "Data Science & Predictive Analytics",
-    desc: "Turning raw educational data into actionable insights — identifying at-risk learners, predicting dropout patterns, and optimizing curriculum delivery at scale.",
-    tags: ["Python", "ML Models", "Dashboards"],
-  },
-  {
-    num: "05",
-    title: "Human-Computer Interaction",
-    desc: "Studying how students interact with digital tools to design more intuitive, accessible, and inclusive interfaces for diverse learning environments.",
-    tags: ["UX Design", "Accessibility", "Prototyping"],
-  },
-  {
-    num: "06",
-    title: "Cybersecurity & Digital Safety",
-    desc: "Researching secure-by-design principles for student data platforms, identity management, and safe digital environments for schools and institutions.",
-    tags: ["Security", "Privacy", "Compliance"],
-  },
+  { num: "01", title: "Artificial Intelligence in Education", desc: "Developing adaptive learning algorithms, emotion-sensing models, and AI-driven personalization engines that respond to each student's unique learning pattern.", tags: ["Machine Learning", "NLP", "Adaptive Systems"] },
+  { num: "02", title: "Robotics & Embedded Systems", desc: "Building intelligent robotic platforms and IoT-integrated classroom tools that give students hands-on exposure to hardware, automation, and real-time control systems.", tags: ["IoT", "Embedded C", "Automation"] },
+  { num: "03", title: "EdTech Product Research", desc: "Researching next-generation LMS architectures, student lifecycle analytics, and gamified learning frameworks that improve engagement and measurable outcomes.", tags: ["LMS", "Analytics", "UX Research"] },
+  { num: "04", title: "Data Science & Predictive Analytics", desc: "Turning raw educational data into actionable insights — identifying at-risk learners, predicting dropout patterns, and optimizing curriculum delivery at scale.", tags: ["Python", "ML Models", "Dashboards"] },
+  { num: "05", title: "Human-Computer Interaction", desc: "Studying how students interact with digital tools to design more intuitive, accessible, and inclusive interfaces for diverse learning environments.", tags: ["UX Design", "Accessibility", "Prototyping"] },
+  { num: "06", title: "Cybersecurity & Digital Safety", desc: "Researching secure-by-design principles for student data platforms, identity management, and safe digital environments for schools and institutions.", tags: ["Security", "Privacy", "Compliance"] },
 ];
 
 const collaborationTracks = [
-  {
-    icon: "🎓",
-    title: "Academic Partnerships",
-    desc: "Co-research programs with universities and colleges — joint publications, shared labs, and student exchange initiatives.",
-  },
-  {
-    icon: "🏭",
-    title: "Industry Collaborations",
-    desc: "Working with tech companies to bring real-world problem statements into our research pipeline and co-develop solutions.",
-  },
-  {
-    icon: "🏛️",
-    title: "Government & NGOs",
-    desc: "Partnering with public bodies and non-profits to pilot AI-first education programs at scale across underserved regions.",
-  },
-  {
-    icon: "🤝",
-    title: "Fellowships",
-    desc: "Structured fellowship programs for student researchers — mentorship, stipends, and pathways to publish and present.",
-  },
-  {
-    icon: "🔗",
-    title: "Joint Initiatives",
-    desc: "Cross-institutional projects that combine expertise from multiple domains to tackle complex educational challenges.",
-  },
+  {  title: "Academic Partnerships", desc: "Co-research programs with universities and colleges — joint publications, shared labs, and student exchange initiatives." },
+  {  title: "Industry Collaborations", desc: "Working with tech companies to bring real-world problem statements into our research pipeline and co-develop solutions." },
+  {  title: "Government & NGOs", desc: "Partnering with public bodies and non-profits to pilot AI-first education programs at scale across underserved regions." },
+  {  title: "Fellowships", desc: "Structured fellowship programs for student researchers — mentorship, stipends, and pathways to publish and present." },
+  {  title: "Joint Initiatives", desc: "Cross-institutional projects that combine expertise from multiple domains to tackle complex educational challenges." },
 ];
 
-const partners = ["Bentley", "Code.org", "NVIDIA", "Software AG", "Celonis", "Unity", "IABAC"];
+const partners = [
+  { name: "Bentley", logo: "https://upload.wikimedia.org/wikipedia/commons/e/ed/Bentley_Systems_logo.svg" },
+  { name: "Code.org", logo: "https://code.org/_next/static/media/cdo-logo-inverse.062eac04.svg" },
+  { name: "NVIDIA", logo: "https://iprsoftwaremedia.com/219/files/202512/692f56b83d6332f881bbc58b_nvidia-logo-horiz-blk-16x9%201/nvidia-logo-horiz-blk-16x9%201_3b6e36c5-dc74-4a75-86f4-5faefc2a7f7d-prv.png" },
+  { name: "Software AG", logo: "https://www.softwareag.com/app/uploads/2025/09/software-gmbh-light-bg-logo.svg" },
+  { name: "Celonis", logo: "https://upload.wikimedia.org/wikipedia/commons/b/b4/Celonis_Logo.png" },
+  { name: "Unity", logo: "https://upload.wikimedia.org/wikipedia/commons/8/8a/Official_unity_logo.png" },
+  { name: "IABAC", logo: "https://iabac.org/resource/images/logo.png" },
+  { name: "TCS", logo: "https://www.tcs.com/content/dam/global-tcs/en/images/home/tcs-logo-1.svg" },
+  { name: "Infosys", logo: "https://www.infosys.com/content/dam/infosys-web/en/global-resource/26/carlos-alcaraz-lead.jpg" },
+  { name: "Wipro", logo: "https://www.wipro.com/content/dam/nexus/en/brand/images/wipro-logo-white.svg" },
+  { name: "HCL", logo: "https://www.hcltech.com/themes/custom/hcltech/images/logo.svg" },
+  { name: "Tech Mahindra", logo: "https://www.techmahindra.com/themes/custom/tech_mahindra/logo.svg" },
+  { name: "Accenture", logo: "https://www.accenture.com/content/dam/accenture/final/images/icons/symbol/Acc_Logo_Black_Purple_RGB.png" },
+  { name: "IBM", logo: "https://www.ibm.com/brand/experience-guides/developer/8f4e3cc2b5/8f4e3cc2b5-logo.svg" },
+  { name: "Microsoft", logo: "https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE1Mu3b?ver=5c31" },
+  { name: "Google", logo: "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" },
+  { name: "Amazon", logo: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" },
+  { name: "Meta", logo: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg" },
+  { name: "Apple", logo: "https://www.apple.com/ac/structured-data/images/knowledge_graph_logo.png" },
+  { name: "Adobe", logo: "https://www.adobe.com/content/dam/cc/icons/Adobe_Corporate_Horizontal_Red_HEX.svg" },
+  { name: "Oracle", logo: "https://www.oracle.com/a/ocom/img/cb71/oracle-logo.jpg" },
+  { name: "SAP", logo: "https://www.sap.com/dam/application/shared/logos/sap-logo-svg.svg" },
+  { name: "Cisco", logo: "https://www.cisco.com/c/dam/c/en/us/td/i/300001_400000/300001_310000/300001_300010/cisco_logo_white_300010.png" },
+  { name: "Dell", logo: "https://www.dell.com/_astro/dell-logo.D8r5Kv8Z_Z1pQXvN.svg" },
+  { name: "HP", logo: "https://www.hp.com/us-en/shop/app/assets/images/uploads/prod/HP%20Logo%20White%20Text%20on%20Transparent%20Background%201200x630.png" },
+];
 
 const stats = [
   { value: "12+", label: "Active Research Projects" },
-  { value: "7", label: "Industry Partners" },
+  { value: "7",   label: "Industry Partners" },
   { value: "40+", label: "Student Researchers" },
-  { value: "3", label: "Published Papers" },
+  { value: "3",   label: "Published Papers" },
 ];
 
-function RD() {
+export default function RD() {
   const navigate = useNavigate();
-  const [visAreas, setVisAreas] = useState([]);
-  const [visTracks, setVisTracks] = useState([]);
-  const [visStats, setVisStats] = useState(false);
+  const [visAreas,    setVisAreas]    = useState([]);
+  const [visTracks,   setVisTracks]   = useState([]);
+  const [visStats,    setVisStats]    = useState(false);
   const [visPartners, setVisPartners] = useState(false);
-  const sectionRef = useRef(null);
-  const statsRef = useRef(null);
+  const sectionRef  = useRef(null);
+  const statsRef    = useRef(null);
   const partnersRef = useRef(null);
 
   useEffect(() => {
-    const obs = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (!e.isIntersecting) return;
-          if (e.target === statsRef.current) { setVisStats(true); obs.unobserve(e.target); return; }
-          if (e.target === partnersRef.current) { setVisPartners(true); obs.unobserve(e.target); return; }
-          const idx = Number(e.target.dataset.idx);
-          const type = e.target.dataset.type;
-          if (type === "area") setVisAreas(v => { const n = [...v]; n[idx] = true; return n; });
-          if (type === "track") setVisTracks(v => { const n = [...v]; n[idx] = true; return n; });
-          obs.unobserve(e.target);
-        });
-      },
-      { threshold: 0.1 }
-    );
-    if (statsRef.current) obs.observe(statsRef.current);
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        if (e.target === statsRef.current)    { setVisStats(true);    obs.unobserve(e.target); return; }
+        if (e.target === partnersRef.current) { setVisPartners(true); obs.unobserve(e.target); return; }
+        const idx  = Number(e.target.dataset.idx);
+        const type = e.target.dataset.type;
+        if (type === "area")  setVisAreas(v  => { const n = [...v]; n[idx] = true; return n; });
+        if (type === "track") setVisTracks(v => { const n = [...v]; n[idx] = true; return n; });
+        obs.unobserve(e.target);
+      });
+    }, { threshold: 0.1 });
+    if (statsRef.current)    obs.observe(statsRef.current);
     if (partnersRef.current) obs.observe(partnersRef.current);
     sectionRef.current?.querySelectorAll("[data-type]").forEach(el => obs.observe(el));
     return () => obs.disconnect();
   }, []);
 
   return (
-    <section className="rd-section" ref={sectionRef}>
+    <section ref={sectionRef} style={{ fontFamily: "'Inter', sans-serif", overflow: "hidden" }}>
 
       {/* ── Hero ── */}
-      <div className="rd-hero">
-        <div className="rd-hero-inner">
-          <span className="rd-eyebrow">Research &amp; Development</span>
-          <h1 className="rd-hero-title">
-            Research that ships to<br />
-            <span className="rd-hero-accent">real classrooms</span>
-          </h1>
-          <p className="rd-hero-sub">
-            We collaborate with academic institutions, industry leaders, and government bodies
-            to accelerate AI-first education, de-risk pilots, and scale what works.
-          </p>
-          <div className="rd-hero-actions">
-            <button className="rd-btn-primary" onClick={() => navigate("/contact")}>Start a Collaboration</button>
-            <button className="rd-btn-outline" onClick={() => navigate("/products")}>View Product Labs</button>
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", minHeight: "520px" }} className="rd-hero-grid">
+        {/* Left dark panel */}
+        <div className="dark-bg" style={{
+          background: "linear-gradient(180deg, #060d1a 0%, #0a1628 100%)",
+          padding: "clamp(60px,8vw,100px) clamp(32px,5vw,80px)",
+          display: "flex", flexDirection: "column", justifyContent: "center",
+          position: "relative", overflow: "hidden",
+        }}>
+          <div style={{ position: "absolute", inset: 0, background: "radial-gradient(circle at 10% 50%, rgba(37,99,235,.15), transparent 50%), radial-gradient(circle at 90% 20%, rgba(37,99,235,.1), transparent 45%)", pointerEvents: "none" }} />
+          <div style={{ position: "relative", zIndex: 1 }}>
+            <span style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "#2563eb", marginBottom: "24px", display: "flex", alignItems: "center", gap: "8px" }}>
+              <span style={{ width: "20px", height: "2px", background: "#2563eb", display: "inline-block", borderRadius: "2px" }} />
+              Research & Development
+            </span>
+            <h1 style={{ fontFamily: "'Space Grotesk', 'Poppins', 'Inter', sans-serif", fontSize: "clamp(36px,4.5vw,58px)", fontWeight: 800, color: "#f1f5f9", lineHeight: 1.06, letterSpacing: "-0.03em", margin: "0 0 20px" }}>
+              Research that ships to<br /><span style={{ color: "#2563eb" }}>real classrooms</span>
+            </h1>
+            <p style={{ fontSize: "clamp(14px,1.4vw,16px)", color: "rgba(241,245,249,.55)", lineHeight: 1.8, margin: "0 0 12px", maxWidth: "420px" }}>
+              We collaborate with academic institutions, industry leaders, and government bodies
+              to accelerate AI-first education, de-risk pilots, and scale what works.
+            </p>
+            <p style={{ fontSize: "clamp(14px,1.4vw,16px)", color: "rgba(241,245,249,.55)", lineHeight: 1.8, margin: "0 0 28px", maxWidth: "420px" }}>
+              We deliver full-stack development, product design, and implementation support—moving
+              from research to launch with clarity and momentum.
+            </p>
+            <div style={{ display: "flex", gap: "14px", flexWrap: "wrap" }}>
+              <button onClick={() => navigate("/contact")} style={{ background: "#2563eb", color: "#fff", border: "none", borderRadius: "10px", padding: "13px 28px", fontSize: "14px", fontWeight: 700, cursor: "pointer", fontFamily: "inherit", boxShadow: "0 8px 24px rgba(37,99,235,.35)", transition: "background .2s, transform .2s" }}
+                onMouseEnter={e => { e.currentTarget.style.background = "#1d4ed8"; e.currentTarget.style.transform = "translateY(-2px)"; }}
+                onMouseLeave={e => { e.currentTarget.style.background = "#2563eb"; e.currentTarget.style.transform = ""; }}>
+                Start a Collaboration
+              </button>
+              <button onClick={() => navigate("/products")} style={{ background: "rgba(255,255,255,.07)", color: "#f1f5f9", border: "1px solid rgba(255,255,255,.18)", borderRadius: "10px", padding: "13px 28px", fontSize: "14px", fontWeight: 600, cursor: "pointer", fontFamily: "inherit", transition: "background .2s, transform .2s" }}
+                onMouseEnter={e => { e.currentTarget.style.background = "rgba(255,255,255,.13)"; e.currentTarget.style.transform = "translateY(-2px)"; }}
+                onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,.07)"; e.currentTarget.style.transform = ""; }}>
+                View Product Labs
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Right image */}
+        <div style={{ position: "relative", overflow: "hidden", minHeight: "400px" }}>
+          <img src="/images/chrono.jpg" alt="Research and development"
+            style={{ width: "100%", height: "100%", objectFit: "cover", display: "block", filter: "brightness(0.85)" }} />
+          <div style={{
+            position: "absolute", bottom: "24px", left: "24px",
+            background: "rgba(6,13,26,0.88)", backdropFilter: "blur(12px)",
+            border: "1px solid rgba(255,255,255,0.1)",
+            borderRadius: "12px", padding: "14px 20px",
+            display: "flex", flexDirection: "column", gap: "2px",
+          }}>
+            <span style={{ fontFamily: "'Space Grotesk', 'Poppins', sans-serif", fontSize: "26px", fontWeight: 800, color: "#60a5fa", lineHeight: 1 }}>12+</span>
+            <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.5)", fontWeight: 500, letterSpacing: "0.04em" }}>Active Projects</span>
           </div>
         </div>
       </div>
 
       {/* ── Stats Bar ── */}
-      <div className="rd-stats-bar" ref={statsRef}>
+      <div ref={statsRef} className="rd2-stats dark-bg" style={{ background: "#0f172a", display: "grid", gridTemplateColumns: "repeat(4, 1fr)" }}>
         {stats.map((s, i) => (
-          <div
-            key={i}
-            className="rd-stat"
-            style={{
-              opacity: visStats ? 1 : 0,
-              transform: visStats ? "translateY(0)" : "translateY(24px)",
-              transition: `opacity .6s ease ${i * 0.1}s, transform .6s ease ${i * 0.1}s`,
-            }}
-          >
-            <span className="rd-stat-val">{s.value}</span>
-            <span className="rd-stat-lbl">{s.label}</span>
+          <div key={i} style={{ padding: "clamp(28px,4vw,48px) clamp(20px,3vw,40px)", borderRight: i < 3 ? "1px solid rgba(255,255,255,.07)" : "none", display: "flex", flexDirection: "column", gap: "6px", alignItems: "center", textAlign: "center", opacity: visStats ? 1 : 0, transform: visStats ? "translateY(0)" : "translateY(24px)", transition: `opacity .6s ease ${i * 0.1}s, transform .6s ease ${i * 0.1}s` }}>
+            <span style={{ fontFamily: "'Space Grotesk', 'Poppins', 'sans-serif", fontSize: "clamp(36px,4vw,52px)", fontWeight: 800, color: "#2563eb", lineHeight: 1 }}>{s.value}</span>
+            <span style={{ fontSize: "13px", color: "rgba(255,255,255,0.72)", fontWeight: 500 }}>{s.label}</span>
           </div>
         ))}
       </div>
 
       {/* ── Research Areas ── */}
-      <div className="rd-areas-section">
-        <div className="rd-section-head">
-          <span className="rd-eyebrow-dark">Research Areas</span>
-          <h2 className="rd-section-title">What We're <span className="rd-blue">Building</span></h2>
-          <p className="rd-section-sub">Six active research tracks where student teams work alongside mentors to solve real problems in education and technology.</p>
-        </div>
-        <div className="rd-areas-grid">
-          {researchAreas.map((area, i) => (
-            <div
-              key={i}
-              className="rd-area-card"
-              data-idx={i}
-              data-type="area"
-              style={{
-                opacity: visAreas[i] ? 1 : 0,
-                transform: visAreas[i] ? "translateY(0)" : "translateY(40px)",
-                transition: `opacity .65s cubic-bezier(0.22,1,0.36,1) ${(i % 3) * 0.1}s, transform .65s cubic-bezier(0.22,1,0.36,1) ${(i % 3) * 0.1}s`,
-              }}
-            >
-              <div className="rd-area-top">
-                <span className="rd-area-num">{area.num}</span>
-                <div className="rd-area-accent-line" />
-              </div>
-              <h3 className="rd-area-title">{area.title}</h3>
-              <p className="rd-area-desc">{area.desc}</p>
-              <div className="rd-area-tags">
-                {area.tags.map((t, j) => (
-                  <span key={j} className="rd-area-tag">{t}</span>
-                ))}
-              </div>
-              <div className="rd-area-hover-bar" />
-            </div>
-          ))}
+      <div style={{ background: "#f0f6ff", padding: "clamp(64px,9vw,110px) clamp(16px,4vw,80px)" }}>
+        <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+          <div style={{ marginBottom: "clamp(40px,5vw,64px)", maxWidth: "640px" }}>
+            <span style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "#2563eb", marginBottom: "16px", display: "flex", alignItems: "center", gap: "8px" }}>
+              <span style={{ width: "20px", height: "2px", background: "#2563eb", display: "inline-block", borderRadius: "2px" }} />
+              Research Areas
+            </span>
+            <h2 style={{ fontFamily: "'Space Grotesk', 'Poppins', 'Inter', sans-serif", fontSize: "clamp(32px,5vw,54px)", fontWeight: 800, color: "#0f172a", lineHeight: 1.06, letterSpacing: "-0.03em", margin: "0 0 14px" }}>
+              What We're <span style={{ color: "#2563eb" }}>Building</span>
+            </h2>
+            <p style={{ fontSize: "clamp(14px,1.5vw,16px)", color: "#64748b", lineHeight: 1.8, margin: 0 }}>
+              Six active research tracks where student teams work alongside mentors to solve real problems in education and technology.
+            </p>
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "20px" }} className="rd2-areas">
+            {researchAreas.map((area, i) => (
+              <ResearchCard key={i} area={area} i={i} visible={visAreas[i]} />
+            ))}
+          </div>
         </div>
       </div>
 
       {/* ── Collaboration Tracks ── */}
-      <div className="rd-collab-section">
-        <div className="rd-collab-inner">
-          <div className="rd-collab-head">
-            <span className="rd-eyebrow">Collaboration Tracks</span>
-            <h2 className="rd-collab-title">How We <span className="rd-hero-accent">Work Together</span></h2>
-            <p className="rd-collab-sub">Structured programs designed for measurable outcomes and shared ownership across every partnership model.</p>
+      <div className="dark-bg" style={{ background: "linear-gradient(180deg, #060d1a 0%, #0a1628 100%)", padding: "clamp(64px,9vw,110px) clamp(16px,4vw,80px)" }}>
+        <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+          <div style={{ marginBottom: "clamp(40px,5vw,64px)", maxWidth: "640px" }}>
+            <span style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "#2563eb", marginBottom: "16px", display: "flex", alignItems: "center", gap: "8px" }}>
+              <span style={{ width: "20px", height: "2px", background: "#2563eb", display: "inline-block", borderRadius: "2px" }} />
+              Collaboration Tracks
+            </span>
+            <h2 style={{ fontFamily: "'Space Grotesk', 'Poppins', 'Inter', sans-serif", fontSize: "clamp(32px,5vw,54px)", fontWeight: 800, color: "#f1f5f9", lineHeight: 1.06, letterSpacing: "-0.03em", margin: "0 0 14px" }}>
+              How We <span style={{ color: "#2563eb" }}>Work Together</span>
+            </h2>
+            <p style={{ fontSize: "clamp(14px,1.5vw,16px)", color: "rgba(255,255,255,0.75)", lineHeight: 1.8, margin: 0 }}>
+              Structured programs designed for measurable outcomes and shared ownership across every partnership model.
+            </p>
           </div>
-          <div className="rd-collab-grid">
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: "16px" }} className="rd2-collab">
             {collaborationTracks.map((track, i) => (
-              <div
-                key={i}
-                className="rd-collab-card"
-                data-idx={i}
-                data-type="track"
-                style={{
-                  opacity: visTracks[i] ? 1 : 0,
-                  transform: visTracks[i] ? "translateY(0)" : "translateY(40px)",
-                  transition: `opacity .65s cubic-bezier(0.22,1,0.36,1) ${i * 0.1}s, transform .65s cubic-bezier(0.22,1,0.36,1) ${i * 0.1}s`,
-                }}
-              >
-                <div className="rd-collab-icon">{track.icon}</div>
-                <h3 className="rd-collab-card-title">{track.title}</h3>
-                <p className="rd-collab-card-desc">{track.desc}</p>
-                <span className="rd-collab-cta">Explore →</span>
-                <div className="rd-collab-hover-bar" />
-              </div>
+              <CollabCard key={i} track={track} i={i} visible={visTracks[i]} />
             ))}
           </div>
         </div>
       </div>
 
       {/* ── Partners ── */}
-      <div className="rd-partners-section" ref={partnersRef}>
-        <div className="rd-partners-head">
-          <span className="rd-eyebrow-dark">Partners &amp; Accreditors</span>
-          <h2 className="rd-section-title">Trusted <span className="rd-blue">Collaborators</span></h2>
-          <p className="rd-section-sub">Organizations that amplify our research impact and open doors for our student researchers.</p>
-        </div>
-        <div className="rd-partners-grid">
-          {partners.map((name, i) => (
-            <div
-              key={name}
-              className="rd-partner-tile"
-              style={{
-                opacity: visPartners ? 1 : 0,
-                transform: visPartners ? "translateY(0)" : "translateY(24px)",
-                transition: `opacity .6s ease ${i * 0.08}s, transform .6s ease ${i * 0.08}s`,
-              }}
-            >
-              <span>{name}</span>
-            </div>
-          ))}
-        </div>
-
-        {/* CTA Banner */}
-        <div className="rd-cta-banner">
-          <div className="rd-cta-text">
-            <h3>Ready to collaborate?</h3>
-            <p>Join our growing network of research partners and help shape the future of education.</p>
+      <div ref={partnersRef} style={{ background: "#f0f6ff", padding: "clamp(64px,9vw,110px) clamp(16px,4vw,80px)" }}>
+        <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+          <div style={{ marginBottom: "clamp(40px,5vw,56px)", maxWidth: "640px" }}>
+            <span style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "#2563eb", marginBottom: "16px", display: "flex", alignItems: "center", gap: "8px" }}>
+              <span style={{ width: "20px", height: "2px", background: "#2563eb", display: "inline-block", borderRadius: "2px" }} />
+              Partners & Accreditors
+            </span>
+            <h2 style={{ fontFamily: "'Space Grotesk', 'Poppins', 'Inter', sans-serif", fontSize: "clamp(32px,5vw,54px)", fontWeight: 800, color: "#0f172a", lineHeight: 1.06, letterSpacing: "-0.03em", margin: "0 0 14px" }}>
+              Trusted <span style={{ color: "#2563eb" }}>Collaborators</span>
+            </h2>
+            <p style={{ fontSize: "clamp(14px,1.5vw,16px)", color: "#64748b", lineHeight: 1.8, margin: 0 }}>
+              Organizations that amplify our research impact and open doors for our student researchers.
+            </p>
           </div>
-          <button className="rd-btn-primary" onClick={() => navigate("/contact")}>Get In Touch →</button>
+          {/* Partners Carousel - Row 1 (Left to Right) */}
+          <div style={{ marginBottom: "clamp(48px,6vw,80px)", overflow: "hidden" }}>
+            <div className="rd-partners-scroll rd-scroll-ltr" style={{ display: "flex", gap: "14px", animation: "scroll-ltr 30s linear infinite", opacity: visPartners ? 1 : 0.3, transition: "opacity .6s ease" }}>
+              {[...partners, ...partners].map((partner, i) => (
+                <div key={`ltr-${i}`} style={{ background: "#fff", borderRadius: "12px", border: "1px solid rgba(37,99,235,.18)", padding: "20px 12px", minHeight: "76px", minWidth: "120px", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 4px 16px rgba(11,18,32,.06)", cursor: "pointer", transition: "transform .5s cubic-bezier(0.22,1,0.36,1), box-shadow .5s, border-color .3s", flexShrink: 0 }}
+                  onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-5px)"; e.currentTarget.style.boxShadow = "0 16px 36px rgba(37,99,235,.15)"; e.currentTarget.style.borderColor = "#2563eb"; }}
+                  onMouseLeave={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "0 4px 16px rgba(11,18,32,.06)"; e.currentTarget.style.borderColor = "rgba(37,99,235,.18)"; }}>
+                  <img src={partner.logo} alt={partner.name} style={{ maxWidth: "100%", maxHeight: "40px", objectFit: "contain" }} />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Partners Carousel - Row 2 (Right to Left) */}
+          <div style={{ marginBottom: "clamp(48px,6vw,80px)", overflow: "hidden" }}>
+            <div className="rd-partners-scroll rd-scroll-rtl" style={{ display: "flex", gap: "14px", animation: "scroll-rtl 30s linear infinite", opacity: visPartners ? 1 : 0.3, transition: "opacity .6s ease" }}>
+              {[...partners, ...partners].map((partner, i) => (
+                <div key={`rtl-${i}`} style={{ background: "#fff", borderRadius: "12px", border: "1px solid rgba(37,99,235,.18)", padding: "20px 12px", minHeight: "76px", minWidth: "120px", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 4px 16px rgba(11,18,32,.06)", cursor: "pointer", transition: "transform .5s cubic-bezier(0.22,1,0.36,1), box-shadow .5s, border-color .3s", flexShrink: 0 }}
+                  onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-5px)"; e.currentTarget.style.boxShadow = "0 16px 36px rgba(37,99,235,.15)"; e.currentTarget.style.borderColor = "#2563eb"; }}
+                  onMouseLeave={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "0 4px 16px rgba(11,18,32,.06)"; e.currentTarget.style.borderColor = "rgba(37,99,235,.18)"; }}>
+                  <img src={partner.logo} alt={partner.name} style={{ maxWidth: "100%", maxHeight: "40px", objectFit: "contain" }} />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* CTA Banner */}
+          <div className="dark-bg" style={{ background: "linear-gradient(135deg, #060d1a 0%, #0f172a 100%)", borderRadius: "20px", padding: "clamp(32px,4vw,52px) clamp(28px,4vw,56px)", display: "flex", alignItems: "center", justifyContent: "space-between", gap: "32px", flexWrap: "wrap", border: "1px solid rgba(37,99,235,.2)", boxShadow: "0 24px 48px rgba(6,13,26,.2)" }}>
+            <div>
+              <h3 style={{ fontFamily: "'Space Grotesk', 'Poppins', 'Inter', sans-serif", fontSize: "clamp(22px,2.5vw,30px)", fontWeight: 800, color: "#f1f5f9", margin: "0 0 8px", letterSpacing: "-0.02em" }}>Ready to collaborate?</h3>
+              <p style={{ fontSize: "15px", color: "rgba(255,255,255,0.75)", margin: 0, lineHeight: 1.6 }}>Join our growing network of research partners and help shape the future of education.</p>
+            </div>
+            <button onClick={() => navigate("/contact")} style={{ background: "#2563eb", color: "#fff", border: "none", borderRadius: "10px", padding: "13px 28px", fontSize: "14px", fontWeight: 700, cursor: "pointer", fontFamily: "inherit", boxShadow: "0 8px 24px rgba(37,99,235,.35)", transition: "background .2s, transform .2s", whiteSpace: "nowrap" }}
+              onMouseEnter={e => { e.currentTarget.style.background = "#1d4ed8"; e.currentTarget.style.transform = "translateY(-2px)"; }}
+              onMouseLeave={e => { e.currentTarget.style.background = "#2563eb"; e.currentTarget.style.transform = ""; }}>
+              Get In Touch →
+            </button>
+          </div>
         </div>
       </div>
 
       <style>{`
-        .rd-section {
-          width: 100%;
-          font-family: "DM Sans", "Space Grotesk", sans-serif;
-          overflow: hidden;
+        .rd-hero-grid { min-height: 520px; }
+        @keyframes scroll-ltr {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
         }
-
-        /* ── Hero ── */
-        .rd-hero {
-          background: linear-gradient(180deg, #062a4a 0%, #041f3a 60%, #03172c 100%);
-          width: 100%;
-          padding: clamp(80px, 12vw, 140px) clamp(24px, 5vw, 80px) clamp(64px, 9vw, 100px);
-          position: relative;
-          overflow: hidden;
-          box-sizing: border-box;
+        @keyframes scroll-rtl {
+          0% { transform: translateX(-50%); }
+          100% { transform: translateX(0); }
         }
-        .rd-hero::before {
-          content: "";
-          position: absolute;
-          inset: 0;
-          background:
-            radial-gradient(circle at 10% 50%, rgba(37,99,235,0.18), transparent 50%),
-            radial-gradient(circle at 90% 20%, rgba(37,99,235,0.12), transparent 45%);
-          pointer-events: none;
+        .rd-partners-scroll { will-change: transform; }
+        .rd-partners-scroll:hover { animation-play-state: paused; }
+        @media (max-width: 768px) {
+          .rd-hero-grid { grid-template-columns: 1fr; min-height: auto; }
+          .rd-hero-grid > :first-child { order: 2; padding: clamp(40px,6vw,80px) clamp(24px,4vw,60px); }
+          .rd-hero-grid > :last-child { order: 1; min-height: 300px; }
         }
-        .rd-hero-inner {
-          position: relative;
-          z-index: 1;
-          max-width: 760px;
-        }
-        .rd-eyebrow {
-          display: inline-block;
-          font-size: 11px; font-weight: 700;
-          letter-spacing: 3.5px; text-transform: uppercase;
-          color: #2563eb;
-          background: rgba(37,99,235,0.15);
-          border: 1px solid rgba(37,99,235,0.3);
-          padding: 6px 16px; border-radius: 999px;
-          margin-bottom: 24px;
-        }
-        .rd-hero-title {
-          font-family: "Space Grotesk", sans-serif;
-          font-size: clamp(36px, 6vw, 68px);
-          font-weight: 800; color: #f1f5f9;
-          line-height: 1.08; letter-spacing: -0.03em;
-          margin: 0 0 20px;
-        }
-        .rd-hero-accent { color: #2563eb; }
-        .rd-hero-sub {
-          font-size: clamp(15px, 1.8vw, 18px);
-          color: rgba(241,245,249,0.7);
-          line-height: 1.8; margin: 0 0 36px;
-          max-width: 620px;
-        }
-        .rd-hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
-        .rd-btn-primary {
-          background: #2563eb; color: #fff;
-          border: none; border-radius: 10px;
-          padding: 13px 28px; font-size: 14px; font-weight: 700;
-          cursor: pointer; font-family: inherit;
-          transition: background .2s, transform .2s, box-shadow .2s;
-          box-shadow: 0 8px 24px rgba(37,99,235,0.35);
-        }
-        .rd-btn-primary:hover { background: #1d4ed8; transform: translateY(-2px); box-shadow: 0 14px 32px rgba(37,99,235,0.4); }
-        .rd-btn-outline {
-          background: rgba(255,255,255,0.08); color: #f1f5f9;
-          border: 1px solid rgba(255,255,255,0.2); border-radius: 10px;
-          padding: 13px 28px; font-size: 14px; font-weight: 600;
-          cursor: pointer; font-family: inherit;
-          transition: background .2s, border-color .2s, transform .2s;
-        }
-        .rd-btn-outline:hover { background: rgba(255,255,255,0.14); border-color: rgba(255,255,255,0.4); transform: translateY(-2px); }
-
-        /* ── Stats Bar ── */
-        .rd-stats-bar {
-          background: #0f172a;
-          width: 100%;
-          display: grid;
-          grid-template-columns: repeat(4, 1fr);
-          box-sizing: border-box;
-        }
-        .rd-stat {
-          padding: clamp(28px, 4vw, 48px) clamp(20px, 3vw, 40px);
-          border-right: 1px solid rgba(255,255,255,0.07);
-          display: flex; flex-direction: column; gap: 6px;
-          align-items: center; text-align: center;
-        }
-        .rd-stat:last-child { border-right: none; }
-        .rd-stat-val {
-          font-family: "Space Grotesk", sans-serif;
-          font-size: clamp(36px, 4vw, 52px);
-          font-weight: 800; color: #2563eb; line-height: 1;
-        }
-        .rd-stat-lbl {
-          font-size: 13px; color: #64748b; font-weight: 500;
-        }
-
-        /* ── Research Areas ── */
-        .rd-areas-section {
-          background: #f2f6ff;
-          width: 100%;
-          padding: clamp(64px, 9vw, 110px) clamp(24px, 5vw, 80px);
-          box-sizing: border-box;
-        }
-        .rd-section-head {
-          margin-bottom: clamp(40px, 5vw, 64px);
-          max-width: 640px;
-        }
-        .rd-eyebrow-dark {
-          display: inline-block;
-          font-size: 11px; font-weight: 700;
-          letter-spacing: 3.5px; text-transform: uppercase;
-          color: #2563eb; margin-bottom: 14px;
-        }
-        .rd-section-title {
-          font-family: "Space Grotesk", sans-serif;
-          font-size: clamp(32px, 5vw, 54px);
-          font-weight: 800; color: #0f172a;
-          line-height: 1.1; letter-spacing: -0.03em;
-          margin: 0 0 14px;
-        }
-        .rd-blue { color: #2563eb; }
-        .rd-section-sub {
-          font-size: clamp(14px, 1.5vw, 16px);
-          color: #64748b; line-height: 1.8; margin: 0;
-        }
-        .rd-areas-grid {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 24px;
-          width: 100%;
-        }
-        .rd-area-card {
-          background: #ffffff;
-          border-radius: 18px;
-          border: 1px solid #e2e8f0;
-          padding: 32px 28px;
-          display: flex; flex-direction: column; gap: 14px;
-          position: relative; overflow: hidden;
-          box-shadow: 0 8px 24px rgba(15,23,42,0.06);
-          transition: transform .5s cubic-bezier(0.22,1,0.36,1), box-shadow .5s cubic-bezier(0.22,1,0.36,1), border-color .3s;
-        }
-        .rd-area-card:hover {
-          transform: translateY(-8px);
-          box-shadow: 0 24px 48px rgba(15,23,42,0.12);
-          border-color: #bfdbfe;
-        }
-        .rd-area-top { display: flex; align-items: center; gap: 14px; }
-        .rd-area-num {
-          font-family: "Space Grotesk", sans-serif;
-          font-size: 12px; font-weight: 800;
-          letter-spacing: 2px; color: #2563eb;
-        }
-        .rd-area-accent-line {
-          flex: 1; height: 1px;
-          background: #e2e8f0;
-          transition: background .3s;
-        }
-        .rd-area-card:hover .rd-area-accent-line { background: #bfdbfe; }
-        .rd-area-title {
-          font-family: "Space Grotesk", sans-serif;
-          font-size: clamp(17px, 1.8vw, 21px);
-          font-weight: 700; color: #0f172a;
-          margin: 0; line-height: 1.3;
-          transition: color .3s;
-        }
-        .rd-area-card:hover .rd-area-title { color: #2563eb; }
-        .rd-area-desc {
-          font-size: 14px; color: #64748b;
-          line-height: 1.8; margin: 0; flex: 1;
-        }
-        .rd-area-tags { display: flex; flex-wrap: wrap; gap: 8px; }
-        .rd-area-tag {
-          font-size: 11px; font-weight: 600;
-          color: #2563eb; background: #eff6ff;
-          border: 1px solid #bfdbfe;
-          padding: 4px 12px; border-radius: 999px;
-        }
-        .rd-area-hover-bar {
-          position: absolute; bottom: 0; left: 0; right: 0;
-          height: 3px; background: #2563eb;
-          transform: scaleX(0); transform-origin: left;
-          transition: transform .5s cubic-bezier(0.22,1,0.36,1);
-        }
-        .rd-area-card:hover .rd-area-hover-bar { transform: scaleX(1); }
-
-        /* ── Collaboration Tracks ── */
-        .rd-collab-section {
-          background: linear-gradient(180deg, #062a4a 0%, #041f3a 60%, #03172c 100%);
-          width: 100%;
-          box-sizing: border-box;
-        }
-        .rd-collab-inner {
-          padding: clamp(64px, 9vw, 110px) clamp(24px, 5vw, 80px);
-        }
-        .rd-collab-head {
-          margin-bottom: clamp(40px, 5vw, 64px);
-          max-width: 640px;
-        }
-        .rd-collab-title {
-          font-family: "Space Grotesk", sans-serif;
-          font-size: clamp(32px, 5vw, 54px);
-          font-weight: 800; color: #f1f5f9;
-          line-height: 1.1; letter-spacing: -0.03em;
-          margin: 0 0 14px;
-        }
-        .rd-collab-sub {
-          font-size: clamp(14px, 1.5vw, 16px);
-          color: #64748b; line-height: 1.8; margin: 0;
-        }
-        .rd-collab-grid {
-          display: grid;
-          grid-template-columns: repeat(5, 1fr);
-          gap: 20px;
-          width: 100%;
-        }
-        .rd-collab-card {
-          background: rgba(255,255,255,0.05);
-          border: 1px solid rgba(255,255,255,0.08);
-          border-radius: 18px;
-          padding: 28px 22px;
-          display: flex; flex-direction: column; gap: 12px;
-          position: relative; overflow: hidden;
-          transition: background .4s, border-color .4s, transform .5s cubic-bezier(0.22,1,0.36,1);
-          cursor: pointer;
-        }
-        .rd-collab-card:hover {
-          background: rgba(37,99,235,0.12);
-          border-color: rgba(37,99,235,0.4);
-          transform: translateY(-6px);
-        }
-        .rd-collab-icon { font-size: 28px; line-height: 1; }
-        .rd-collab-card-title {
-          font-family: "Space Grotesk", sans-serif;
-          font-size: 16px; font-weight: 700;
-          color: #f1f5f9; margin: 0;
-          transition: color .3s;
-        }
-        .rd-collab-card:hover .rd-collab-card-title { color: #2563eb; }
-        .rd-collab-card-desc {
-          font-size: 13px; color: #64748b;
-          line-height: 1.7; margin: 0; flex: 1;
-        }
-        .rd-collab-cta {
-          font-size: 13px; font-weight: 700;
-          color: #2563eb;
-          opacity: 0; transform: translateX(-8px);
-          transition: opacity .3s, transform .3s;
-          display: inline-block;
-        }
-        .rd-collab-card:hover .rd-collab-cta { opacity: 1; transform: translateX(0); }
-        .rd-collab-hover-bar {
-          position: absolute; bottom: 0; left: 0; right: 0;
-          height: 2px; background: #2563eb;
-          transform: scaleX(0); transform-origin: left;
-          transition: transform .5s cubic-bezier(0.22,1,0.36,1);
-        }
-        .rd-collab-card:hover .rd-collab-hover-bar { transform: scaleX(1); }
-
-        /* ── Partners ── */
-        .rd-partners-section {
-          background: #f2f6ff;
-          width: 100%;
-          padding: clamp(64px, 9vw, 110px) clamp(24px, 5vw, 80px);
-          box-sizing: border-box;
-        }
-        .rd-partners-head {
-          margin-bottom: clamp(40px, 5vw, 56px);
-          max-width: 640px;
-        }
-        .rd-partners-grid {
-          display: grid;
-          grid-template-columns: repeat(7, 1fr);
-          gap: 16px;
-          width: 100%;
-          margin-bottom: clamp(48px, 6vw, 80px);
-        }
-        .rd-partner-tile {
-          background: #ffffff;
-          border-radius: 14px;
-          border: 1px solid rgba(37,99,235,0.2);
-          padding: 20px 12px;
-          min-height: 80px;
-          display: flex; align-items: center; justify-content: center;
-          font-weight: 700; color: #2563eb;
-          box-shadow: 0 8px 24px rgba(15,23,42,0.06);
-          transition: transform .5s cubic-bezier(0.22,1,0.36,1), box-shadow .5s, border-color .3s;
-          position: relative; overflow: hidden;
-          cursor: pointer;
-        }
-        .rd-partner-tile span {
-          font-size: 12px; text-transform: uppercase;
-          letter-spacing: 1.5px; position: relative; z-index: 1;
-        }
-        .rd-partner-tile:hover {
-          transform: translateY(-5px);
-          border-color: #2563eb;
-          box-shadow: 0 20px 40px rgba(37,99,235,0.15);
-        }
-        .rd-partner-tile::before {
-          content: "";
-          position: absolute; inset: 0;
-          background: rgba(37,99,235,0.05);
-          opacity: 0; transition: opacity .3s;
-        }
-        .rd-partner-tile:hover::before { opacity: 1; }
-
-        /* ── CTA Banner ── */
-        .rd-cta-banner {
-          background: linear-gradient(135deg, #062a4a 0%, #0f172a 100%);
-          border-radius: 20px;
-          padding: clamp(32px, 4vw, 52px) clamp(28px, 4vw, 56px);
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          gap: 32px;
-          flex-wrap: wrap;
-          border: 1px solid rgba(37,99,235,0.2);
-          box-shadow: 0 24px 48px rgba(6,42,74,0.2);
-        }
-        .rd-cta-text h3 {
-          font-family: "Space Grotesk", sans-serif;
-          font-size: clamp(22px, 2.5vw, 30px);
-          font-weight: 800; color: #f1f5f9;
-          margin: 0 0 8px; letter-spacing: -0.02em;
-        }
-        .rd-cta-text p {
-          font-size: 15px; color: #64748b;
-          margin: 0; line-height: 1.6;
-        }
-
-        /* ── Responsive ── */
-        @media (max-width: 1100px) {
-          .rd-areas-grid { grid-template-columns: repeat(2, 1fr); }
-          .rd-collab-grid { grid-template-columns: repeat(3, 1fr); }
-          .rd-partners-grid { grid-template-columns: repeat(4, 1fr); }
-          .rd-stats-bar { grid-template-columns: repeat(2, 1fr); }
-          .rd-stat { border-bottom: 1px solid rgba(255,255,255,0.07); }
-        }
-        @media (max-width: 720px) {
-          .rd-areas-grid { grid-template-columns: 1fr; }
-          .rd-collab-grid { grid-template-columns: repeat(2, 1fr); }
-          .rd-partners-grid { grid-template-columns: repeat(2, 1fr); }
-          .rd-stats-bar { grid-template-columns: repeat(2, 1fr); }
-          .rd-cta-banner { flex-direction: column; align-items: flex-start; }
-          .rd-hero { padding: 80px 20px 48px; }
-          .rd-areas-section, .rd-partners-section { padding: 48px 20px; }
-          .rd-collab-inner { padding: 48px 20px; }
-        }
-        @media (max-width: 480px) {
-          .rd-collab-grid { grid-template-columns: 1fr; }
-          .rd-partners-grid { grid-template-columns: repeat(2, 1fr); }
-          .rd-hero-actions { flex-direction: column; }
-          .rd-btn-primary, .rd-btn-outline { width: 100%; text-align: center; }
-        }
+        @media (max-width: 1100px) { .rd2-areas { grid-template-columns: repeat(2, 1fr) !important; } .rd2-collab { grid-template-columns: repeat(3, 1fr) !important; } .rd2-stats { grid-template-columns: repeat(2, 1fr) !important; } }
+        @media (max-width: 720px)  { .rd2-areas { grid-template-columns: 1fr !important; } .rd2-collab { grid-template-columns: repeat(2, 1fr) !important; } }
+        @media (max-width: 480px)  { .rd2-collab { grid-template-columns: 1fr !important; } }
       `}</style>
     </section>
   );
 }
 
-export default RD;
+function ResearchCard({ area, i, visible }) {
+  const [hovered, setHovered] = useState(false);
+  return (
+    <div
+      data-idx={i} data-type="area"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      style={{
+        background: "#fff", borderRadius: "16px", border: `1px solid ${hovered ? "#bfdbfe" : "#e2e8f0"}`,
+        padding: "28px", display: "flex", flexDirection: "column", gap: "14px",
+        position: "relative", overflow: "hidden",
+        boxShadow: hovered ? "0 20px 48px rgba(11,18,32,.12)" : "0 4px 16px rgba(11,18,32,.06)",
+        transform: hovered ? "translateY(-8px)" : visible ? "translateY(0)" : "translateY(40px)",
+        opacity: visible ? 1 : 0,
+        transition: `opacity .65s cubic-bezier(0.22,1,0.36,1) ${(i % 3) * 0.1}s, transform .65s cubic-bezier(0.22,1,0.36,1) ${(i % 3) * 0.1}s, box-shadow .3s, border-color .3s`,
+      }}>
+      <div style={{ display: "flex", alignItems: "center", gap: "14px" }}>
+        <span style={{ fontFamily: "'Space Grotesk', 'Poppins', sans-serif", fontSize: "11px", fontWeight: 800, color: "#2563eb", letterSpacing: "2px" }}>{area.num}</span>
+        <div style={{ flex: 1, height: "1px", background: hovered ? "#bfdbfe" : "#e2e8f0", transition: "background .3s" }} />
+      </div>
+      <h3 style={{ fontFamily: "'Space Grotesk', 'Poppins', 'Inter', sans-serif", fontSize: "clamp(16px,1.8vw,20px)", fontWeight: 700, color: hovered ? "#2563eb" : "#0f172a", margin: 0, lineHeight: 1.3, transition: "color .3s" }}>{area.title}</h3>
+      <p style={{ fontSize: "14px", color: "#64748b", lineHeight: 1.8, margin: 0, flex: 1 }}>{area.desc}</p>
+      <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
+        {area.tags.map((t, j) => <span key={j} style={{ fontSize: "11px", fontWeight: 600, color: "#2563eb", background: "#eff6ff", border: "1px solid #bfdbfe", padding: "4px 12px", borderRadius: "999px" }}>{t}</span>)}
+      </div>
+      <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "3px", background: "#2563eb", transform: hovered ? "scaleX(1)" : "scaleX(0)", transformOrigin: "left", transition: "transform .5s cubic-bezier(0.22,1,0.36,1)" }} />
+    </div>
+  );
+}
+
+function CollabCard({ track, i, visible }) {
+  const [hovered, setHovered] = useState(false);
+  return (
+    <div
+      data-idx={i} data-type="track"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      style={{
+        background: hovered ? "rgba(37,99,235,.1)" : "rgba(255,255,255,.04)",
+        border: `1px solid ${hovered ? "rgba(37,99,235,.35)" : "rgba(255,255,255,.07)"}`,
+        borderRadius: "16px", padding: "24px 20px",
+        display: "flex", flexDirection: "column", gap: "12px",
+        position: "relative", overflow: "hidden", cursor: "pointer",
+        transform: hovered ? "translateY(-6px)" : visible ? "translateY(0)" : "translateY(40px)",
+        opacity: visible ? 1 : 0,
+        transition: `opacity .65s cubic-bezier(0.22,1,0.36,1) ${i * 0.1}s, transform .65s cubic-bezier(0.22,1,0.36,1) ${i * 0.1}s, background .3s, border-color .3s`,
+      }}>
+      <span style={{ fontSize: "26px", lineHeight: 1 }}>{track.icon}</span>
+      <h3 style={{ fontFamily: "'Space Grotesk', 'Poppins', 'Inter', sans-serif", fontSize: "15px", fontWeight: 700, color: hovered ? "#2563eb" : "#f1f5f9", margin: 0, transition: "color .3s" }}>{track.title}</h3>
+      <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.72)", lineHeight: 1.7, margin: 0, flex: 1 }}>{track.desc}</p>
+      <span style={{ fontSize: "13px", fontWeight: 700, color: "#2563eb", opacity: hovered ? 1 : 0, transform: hovered ? "translateX(0)" : "translateX(-8px)", transition: "opacity .3s, transform .3s", display: "inline-block" }}>Explore →</span>
+      <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "2px", background: "#2563eb", transform: hovered ? "scaleX(1)" : "scaleX(0)", transformOrigin: "left", transition: "transform .5s cubic-bezier(0.22,1,0.36,1)" }} />
+    </div>
+  );
+}

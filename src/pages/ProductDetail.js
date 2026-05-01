@@ -234,7 +234,7 @@ function ProductDetail() {
           color:#fff; line-height:1.06; letter-spacing:-0.03em; margin:0 0 20px;
         }
         .pd-hero-desc {
-          font-size:clamp(15px,1.8vw,18px); color:#94a3b8;
+          font-size:clamp(15px,1.8vw,18px); color:#ffffff;
           line-height:1.8; margin:0; max-width:640px;
         }
 
@@ -275,7 +275,7 @@ function ProductDetail() {
 
         .pd-cta { background: linear-gradient(180deg, #062a4a 0%, #041f3a 60%, #03172c 100%); border-radius:24px; padding:clamp(40px,6vw,72px); text-align:center; }
         .pd-cta-title { font-family:"Space Grotesk",sans-serif; font-size:clamp(24px,3.5vw,40px); font-weight:800; color:#fff; margin:0 0 14px; letter-spacing:-0.02em; }
-        .pd-cta-sub { font-size:16px; color:#94a3b8; margin:0 0 32px; line-height:1.7; }
+        .pd-cta-sub { font-size:16px; color:#ffffff; margin:0 0 32px; line-height:1.7; }
         .pd-cta-actions { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
         .pd-btn-primary { padding:14px 32px; border-radius:999px; color:#fff; border:none; font-size:15px; font-weight:700; cursor:pointer; font-family:inherit; transition:opacity .2s,transform .2s; }
         .pd-btn-primary:hover { opacity:.88; transform:translateY(-2px); }

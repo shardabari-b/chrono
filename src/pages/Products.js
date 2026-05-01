@@ -269,7 +269,7 @@ export default function Products() {
         }
         .prd-heading-desc {
           font-size: clamp(15px, 1.5vw, 17px);
-          color: rgba(248,250,252,0.6); line-height: 1.8; margin-top: 16px;
+          color: #ffffff; line-height: 1.8; margin-top: 16px;
         }
 
         /* ── PILLS ── */

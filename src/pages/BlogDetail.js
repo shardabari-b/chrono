@@ -137,7 +137,7 @@ function BlogDetail() {
         }
         .bd-desc {
           font-size: clamp(15px, 1.8vw, 18px);
-          color: #94a3b8;
+          color: #ffffff;
           line-height: 1.75;
           margin: 0;
           max-width: 640px;

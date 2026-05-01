@@ -1,329 +1,120 @@
 import React from "react";
 
-function Contact() {
+export default function Contact() {
   return (
-    <section className="contact-page-v2 page-section page-contact">
-      <div className="contact-shell">
-        <header className="contact-header">
-          <span className="sh-eyebrow">Get In Touch</span>
-          <h1 className="contact-title">Contact <span className="contact-accent">Us</span></h1>
-          <p>
-            For general inquiries, partnerships, or media requests, please reach out. Our team is always ready to assist
-            you.
-          </p>
-        </header>
+    <section style={{ background: "#f0f6ff", fontFamily: "'Inter', sans-serif", padding: "clamp(80px,10vw,130px) clamp(16px,4vw,80px)" }}>
+      <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
 
-        <div className="contact-grid">
-          <div className="contact-form-panel">
-            <h2>Get in Touch</h2>
-            <form className="contact-form" onSubmit={(event) => event.preventDefault()}>
-              <label>
-                Name
-                <input type="text" placeholder="Your full name" />
-              </label>
-              <label>
-                Email
-                <input type="email" placeholder="your.email@example.com" />
-              </label>
-              <label>
+        {/* Header */}
+        <div style={{ marginBottom: "clamp(40px,5vw,64px)" }}>
+          <span style={{ fontSize: "11px", fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "#2563eb", marginBottom: "16px", display: "flex", alignItems: "center", gap: "8px" }}>
+            <span style={{ width: "20px", height: "2px", background: "#2563eb", display: "inline-block", borderRadius: "2px" }} />
+            Get In Touch
+          </span>
+          <h1 style={{ fontFamily: "'Space Grotesk', 'Poppins', 'Inter', sans-serif", fontSize: "clamp(36px,5vw,58px)", fontWeight: 800, color: "#0f172a", lineHeight: 1.06, letterSpacing: "-0.03em", margin: "0 0 16px" }}>
+            Contact <span style={{ color: "#2563eb" }}>Us</span>
+          </h1>
+          <p style={{ fontSize: "clamp(14px,1.5vw,16px)", color: "#64748b", lineHeight: 1.8, maxWidth: "560px", margin: 0 }}>
+            For general inquiries, partnerships, or media requests, please reach out. Our team is always ready to assist you.
+          </p>
+        </div>
+
+        {/* Grid */}
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(24px,4vw,48px)", alignItems: "start" }} className="ct2-grid">
+
+          {/* Form */}
+          <div style={{ background: "#fff", borderRadius: "20px", padding: "clamp(28px,3vw,40px)", border: "1px solid #e2e8f0", boxShadow: "0 12px 40px rgba(11,18,32,.08)" }}>
+            <h2 style={{ fontFamily: "'Space Grotesk', 'Poppins', 'Inter', sans-serif", fontSize: "22px", fontWeight: 800, color: "#0f172a", margin: "0 0 24px", letterSpacing: "-0.02em" }}>Get in Touch</h2>
+            <form onSubmit={e => e.preventDefault()} style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+              {[
+                { label: "Name",    type: "text",  placeholder: "Your full name" },
+                { label: "Email",   type: "email", placeholder: "your.email@example.com" },
+              ].map(({ label, type, placeholder }) => (
+                <label key={label} style={{ display: "flex", flexDirection: "column", gap: "6px", fontSize: "13px", fontWeight: 600, color: "#334155" }}>
+                  {label}
+                  <input type={type} placeholder={placeholder} style={inputStyle}
+                    onFocus={e => { e.currentTarget.style.borderColor = "#2563eb"; e.currentTarget.style.boxShadow = "0 0 0 3px rgba(37,99,235,.12)"; }}
+                    onBlur={e => { e.currentTarget.style.borderColor = "#e2e8f0"; e.currentTarget.style.boxShadow = "none"; }} />
+                </label>
+              ))}
+              <label style={{ display: "flex", flexDirection: "column", gap: "6px", fontSize: "13px", fontWeight: 600, color: "#334155" }}>
                 Subject
-                <select defaultValue="">
-                  <option value="" disabled>
-                    Select a subject
-                  </option>
+                <select defaultValue="" style={inputStyle}
+                  onFocus={e => { e.currentTarget.style.borderColor = "#2563eb"; e.currentTarget.style.boxShadow = "0 0 0 3px rgba(37,99,235,.12)"; }}
+                  onBlur={e => { e.currentTarget.style.borderColor = "#e2e8f0"; e.currentTarget.style.boxShadow = "none"; }}>
+                  <option value="" disabled>Select a subject</option>
                   <option>General Inquiry</option>
                   <option>Partnerships</option>
                   <option>Media Requests</option>
                   <option>Admissions</option>
                 </select>
               </label>
-              <label>
+              <label style={{ display: "flex", flexDirection: "column", gap: "6px", fontSize: "13px", fontWeight: 600, color: "#334155" }}>
                 Message
-                <textarea placeholder="Tell us about your inquiry..." />
+                <textarea placeholder="Tell us about your inquiry..." style={{ ...inputStyle, minHeight: "140px", resize: "vertical" }}
+                  onFocus={e => { e.currentTarget.style.borderColor = "#2563eb"; e.currentTarget.style.boxShadow = "0 0 0 3px rgba(37,99,235,.12)"; }}
+                  onBlur={e => { e.currentTarget.style.borderColor = "#e2e8f0"; e.currentTarget.style.boxShadow = "none"; }} />
               </label>
-              <button type="submit" className="contact-submit">Send Message</button>
+              <button type="submit" style={{ background: "#2563eb", color: "#fff", border: "none", borderRadius: "10px", padding: "14px 24px", fontSize: "14px", fontWeight: 700, cursor: "pointer", fontFamily: "inherit", boxShadow: "0 6px 20px rgba(37,99,235,.28)", transition: "background .2s, transform .2s" }}
+                onMouseEnter={e => { e.currentTarget.style.background = "#1d4ed8"; e.currentTarget.style.transform = "translateY(-2px)"; }}
+                onMouseLeave={e => { e.currentTarget.style.background = "#2563eb"; e.currentTarget.style.transform = ""; }}>
+                Send Message
+              </button>
             </form>
           </div>
 
-          <div className="contact-info-panel">
-            <div className="info-card">
-              <div className="info-icon">✉️</div>
-              <div>
-                <h3>General Inquiries</h3>
-                <p>Contact forms and communication channels for any questions and support.</p>
-                <p>
-                  Our team is always ready to assist you with any questions about our programs, technologies, or
-                  services.
-                </p>
-              </div>
-            </div>
-
-            <div className="info-card">
-              <div className="info-icon">🤝</div>
-              <div>
-                <h3>Partner with Us</h3>
-                <p>Submit proposals and collaboration inquiries to expand our reach.</p>
-                <p>
-                  We are always seeking new partners to help us expand our impact in educational technology and
-                  innovation.
-                </p>
-              </div>
-            </div>
-
-            <div className="info-card">
-              <div className="info-icon">📰</div>
-              <div>
-                <h3>Media Requests</h3>
-                <p>Press contact details and media resources for all media-related inquiries.</p>
-                <p>Contact our dedicated media team for interviews, press releases, and media kit requests.</p>
-              </div>
-            </div>
-
-            <div className="info-card">
-              <div className="info-icon">📍</div>
-              <div>
-                <h3>Visit Our Headquarters</h3>
-                <p>Macro Vision Academy, Burhanpur, Madhya Pradesh</p>
-                <p>www.chronosphere.in</p>
-                <p>Phone: +91 91235 33416</p>
-                <p>Email: chiefaiofficer@mvaburhanpur.com</p>
-              </div>
-            </div>
+          {/* Info cards */}
+          <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+            {[
+              { icon: "✉️", title: "General Inquiries", lines: ["Contact forms and communication channels for any questions and support.", "Our team is always ready to assist you with any questions about our programs, technologies, or services."] },
+              { icon: "🤝", title: "Partner with Us", lines: ["Submit proposals and collaboration inquiries to expand our reach.", "We are always seeking new partners to help us expand our impact in educational technology and innovation."] },
+              { icon: "📰", title: "Media Requests", lines: ["Press contact details and media resources for all media-related inquiries.", "Contact our dedicated media team for interviews, press releases, and media kit requests."] },
+              { icon: "📍", title: "Visit Our Headquarters", lines: ["Macro Vision Academy, Burhanpur, Madhya Pradesh", "www.chronosphere.in", "Phone: +91 91235 33416", "Email: chiefaiofficer@mvaburhanpur.com"] },
+            ].map(({ icon, title, lines }) => (
+              <InfoCard key={title} icon={icon} title={title} lines={lines} />
+            ))}
           </div>
         </div>
       </div>
 
-      <style>
-        {`
-          .contact-page-v2 {
-            padding: 110px clamp(24px, 5vw, 80px) 90px;
-            background: #f2f6ff;
-            color: #0f172a;
-            font-family: "DM Sans", "Space Grotesk", sans-serif;
-            width: 100%;
-            box-sizing: border-box;
-          }
-
-          .contact-shell {
-            width: 100%;
-          }
-
-          .sh-eyebrow {
-            display: inline-block;
-            font-family: "DM Sans", sans-serif;
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 3.5px;
-            text-transform: uppercase;
-            color: #2563eb;
-            margin-bottom: 14px;
-          }
-
-          .contact-header {
-            text-align: left;
-            margin-bottom: 40px;
-          }
-
-          .contact-title {
-            font-family: "Space Grotesk", sans-serif;
-            font-size: clamp(32px, 5vw, 54px);
-            font-weight: 800;
-            color: #0f172a;
-            line-height: 1.1;
-            letter-spacing: -0.03em;
-            margin: 0 0 14px;
-          }
-          .contact-accent { color: #2563eb; }
-
-          .contact-header p {
-            margin: 0;
-            max-width: 580px;
-            color: #475569;
-            line-height: 1.7;
-          }
-
-          .contact-grid {
-            display: grid;
-            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-            gap: clamp(24px, 5vw, 48px);
-            align-items: start;
-          }
-
-          .contact-form-panel {
-            background: #ffffff;
-            border-radius: 18px;
-            padding: 26px;
-            border: 1px solid #e2e8f0;
-            box-shadow: 0 18px 36px rgba(15, 23, 42, 0.08);
-            transition: transform 0.25s ease, box-shadow 0.25s ease;
-          }
-
-          .contact-form-panel:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 24px 44px rgba(15, 23, 42, 0.12);
-          }
-
-          .contact-form-panel h2 {
-            margin: 0 0 16px;
-            color: #0f172a;
-          }
-
-          .contact-form {
-            display: grid;
-            gap: 16px;
-          }
-
-          .contact-form label {
-            display: grid;
-            gap: 8px;
-            font-size: 14px;
-            color: #0f172a;
-          }
-
-          .contact-form input,
-          .contact-form select,
-          .contact-form textarea {
-            width: 100%;
-            padding: 12px 14px;
-            border-radius: 10px;
-            border: 1px solid #c7d2fe;
-            font-size: 14px;
-            color: #1e293b;
-            background: #ffffff;
-            outline: none;
-            transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
-          }
-
-          .contact-form input:hover,
-          .contact-form select:hover,
-          .contact-form textarea:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 6px 14px rgba(37, 99, 235, 0.12);
-          }
-
-          .contact-form textarea {
-            min-height: 140px;
-            resize: vertical;
-          }
-
-          .contact-form input:focus,
-          .contact-form select:focus,
-          .contact-form textarea:focus {
-            border-color: #2563eb;
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
-          }
-
-          .contact-submit {
-            border: none;
-            background: #2563eb;
-            color: #ffffff;
-            padding: 12px 16px;
-            border-radius: 10px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-          }
-
-          .contact-submit:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 24px rgba(37, 99, 235, 0.25);
-          }
-
-          .contact-info-panel {
-            display: grid;
-            gap: 18px;
-          }
-
-          .info-card {
-            display: grid;
-            grid-template-columns: 40px 1fr;
-            gap: 14px;
-            padding: 18px;
-            border-radius: 16px;
-            background: #eef4ff;
-            border: 1px solid #dbeafe;
-            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-          }
-
-          .info-card:hover {
-            transform: translateY(-4px);
-            border-color: #bfdbfe;
-            box-shadow: 0 18px 36px rgba(37, 99, 235, 0.12);
-          }
-
-          .info-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 12px;
-            background: #dbeafe;
-            display: grid;
-            place-items: center;
-            font-size: 18px;
-          }
-
-          .info-card h3 {
-            margin: 0 0 8px;
-            color: #0f172a;
-            font-size: 16px;
-          }
-
-          .info-card p {
-            margin: 0 0 6px;
-            color: #475569;
-            line-height: 1.6;
-            font-size: 14px;
-          }
-
-          /* Enhanced responsive breakpoints */
-          @media (max-width: 1199.98px) {
-            .contact-page-v2 { padding: 100px 40px 80px; }
-            .contact-grid { gap: 48px; }
-          }
-
-          @media (max-width: 991.98px) {
-            .contact-page-v2 { padding: 90px 32px 70px; }
-            .contact-grid { gap: 40px; }
-            .contact-title { font-size: clamp(32px, 6vw, 42px); }
-            .contact-subtitle { font-size: clamp(16px, 2vw, 18px); }
-            .contact-form-panel { padding: 32px; }
-            .info-grid { gap: 24px; }
-          }
-
-          @media (max-width: 767.98px) {
-            .contact-page-v2 { padding: 80px 24px 60px; text-align: center; }
-            .contact-grid { grid-template-columns: 1fr; gap: 32px; }
-            .contact-title { font-size: clamp(28px, 7vw, 36px); }
-            .contact-subtitle { font-size: clamp(14px, 1.8vw, 16px); }
-            .contact-form-panel { padding: 24px 20px; }
-            .info-grid { grid-template-columns: 1fr; gap: 20px; }
-            .info-card { padding: 20px; }
-          }
-
-          @media (max-width: 575.98px) {
-            .contact-page-v2 { padding: 70px 16px 50px; }
-            .contact-title { font-size: clamp(24px, 8vw, 32px); }
-            .contact-subtitle { font-size: clamp(13px, 1.6vw, 15px); }
-            .contact-form-panel { padding: 20px 16px; }
-            .info-card { padding: 16px; grid-template-columns: 1fr; }
-            .info-icon { width: 32px; height: 32px; font-size: 14px; }
-            .info-title { font-size: 16px; }
-            .info-text { font-size: 13px; }
-          }
-
-          /* Legacy breakpoints for compatibility */
-          @media (max-width: 960px) {
-            .contact-grid { grid-template-columns: 1fr; }
-          }
-          @media (max-width: 540px) {
-            .contact-page-v2 { padding: 90px 16px 60px; }
-            .contact-form-panel { padding: 20px 16px; }
-            .info-card { grid-template-columns: 1fr; }
-            .info-icon { width: 36px; height: 36px; font-size: 16px; }
-          }
-        `}
-      </style>
+      <style>{`
+        @media (max-width: 960px) { .ct2-grid { grid-template-columns: 1fr !important; } }
+        @media (max-width: 540px) { .ct2-grid > div:first-child { padding: 20px 16px !important; } }
+      `}</style>
     </section>
   );
 }
 
-export default Contact;
+function InfoCard({ icon, title, lines }) {
+  const [hovered, setHovered] = React.useState(false);
+  return (
+    <div
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      style={{
+        display: "grid", gridTemplateColumns: "44px 1fr", gap: "14px",
+        padding: "20px", borderRadius: "14px",
+        background: "#eef4ff", border: `1px solid ${hovered ? "#bfdbfe" : "#dbeafe"}`,
+        boxShadow: hovered ? "0 12px 32px rgba(37,99,235,.1)" : "none",
+        transform: hovered ? "translateY(-4px)" : "none",
+        transition: "transform .25s ease, box-shadow .25s ease, border-color .25s ease",
+      }}>
+      <div style={{ width: "44px", height: "44px", borderRadius: "12px", background: "#dbeafe", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "18px", flexShrink: 0 }}>
+        {icon}
+      </div>
+      <div>
+        <h3 style={{ fontFamily: "'Space Grotesk', 'Poppins', 'Inter', sans-serif", margin: "0 0 8px", color: "#0f172a", fontSize: "15px", fontWeight: 700, letterSpacing: "-0.01em" }}>{title}</h3>
+        {lines.map((line, i) => (
+          <p key={i} style={{ margin: "0 0 4px", color: "#475569", lineHeight: 1.65, fontSize: "13.5px" }}>{line}</p>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+const inputStyle = {
+  width: "100%", padding: "11px 14px", borderRadius: "10px",
+  border: "1px solid #e2e8f0", fontSize: "14px", color: "#1e293b",
+  background: "#fff", outline: "none", fontFamily: "'Inter', sans-serif",
+  transition: "border-color .2s, box-shadow .2s",
+};
